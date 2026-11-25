@@ -60,6 +60,15 @@ Un **algoritmo de clustering** es una técnica que agrupa objetos similares dent
 
 ## Clustering Basado en Centroides vs. Jerárquico
 
+**Diferencia conceptual:** el clustering particional produce **una única partición plana** de los datos en `k` grupos, con `k` fijado antes de entrenar. El clustering jerárquico produce **una jerarquía anidada** de agrupaciones (el dendrograma), desde un cluster por punto hasta un único cluster con todos los datos; el número de clusters se decide después, cortando el dendrograma a la altura deseada.
+
+| Aspecto | Particional (centroides) | Jerárquico |
+|---------|--------------------------|------------|
+| **Resultado** | Una partición plana | Jerarquía anidada (dendrograma) |
+| **Número de clusters** | Se fija antes (`k`) | Se elige después, al cortar el dendrograma |
+| **Algoritmo representativo** | K-Means | Clustering Aglomerativo |
+| **Escalabilidad** | Alta | Baja (O(n²) en memoria) |
+
 ### 📌 Clustering Basado en Centroides (Particional)
 
 **Concepto:** Divide los datos en K clusters predefinidos, donde cada cluster se representa con un **centroide** (punto central calculado a partir de los puntos del cluster).
@@ -100,6 +109,8 @@ Un **algoritmo de clustering** es una técnica que agrupa objetos similares dent
 ### 📌 Clustering Jerárquico
 
 **Concepto:** Construye una jerarquía de clusters, representada como un **dendrograma**. Puede ser aglomerativo (abajo-arriba) o divisivo (arriba-abajo).
+
+**Algoritmo representativo:** **Clustering Aglomerativo** (AGNES; `AgglomerativeClustering` en scikit-learn)
 
 #### Características:
 - No requiere especificar el número de clusters de antemano
